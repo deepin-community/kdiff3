@@ -1,0 +1,6 @@
+LIBRARY	"kdiff3ext"
+EXPORTS
+    DllCanUnloadNow=DllCanUnloadNow@0
+    DllGetClassObject=DllGetClassObject@12
+    DllRegisterServer=DllRegisterServer@0
+    DllUnregisterServer=DllUnregisterServer@0

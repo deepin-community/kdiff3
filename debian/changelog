@@ -1,5 +1,599 @@
-template-repository (1.0-1) unstable; urgency=medium
+kdiff3 (1.10.7-1) unstable; urgency=medium
 
-  * Initial release
+  * New upstream release.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Pino Toscano <pino@debian.org>  Wed, 13 Dec 2023 09:43:59 +0100
+
+kdiff3 (1.10.6-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Pino Toscano <pino@debian.org>  Sun, 01 Oct 2023 21:13:53 +0200
+
+kdiff3 (1.10.5-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Drop the transitional kdiff3-qt package, no more needed after two Debian
+    stable releases.
+  * Drop the breaks/replaces for versions older than Debian Bullseye.
+
+ -- Pino Toscano <pino@debian.org>  Mon, 10 Jul 2023 05:38:51 +0200
+
+kdiff3 (1.10.4-1) unstable; urgency=medium
+
+  * Upload to unstable.
+  * New upstream release.
+  * Switch Vcs-* fields back to the 'master' packaging branch.
+
+ -- Pino Toscano <pino@debian.org>  Sun, 11 Jun 2023 22:04:44 +0200
+
+kdiff3 (1.10.2-1) experimental; urgency=medium
+
+  * New upstream release.
+
+ -- Pino Toscano <pino@debian.org>  Sun, 07 May 2023 09:12:42 +0200
+
+kdiff3 (1.10.1-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Switch Vcs-* fields to the 'experimental' packaging branch.
+
+ -- Pino Toscano <pino@debian.org>  Fri, 31 Mar 2023 09:29:22 +0200
+
+kdiff3 (1.10.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update standards version to 4.6.2, no changes needed.
+  * Update the build dependencies according to the upstream build system:
+    - bump cmake to 3.14
+    - bump Qt packages to 5.15.2
+    - bump KF packages to 5.50.0
+    - bump libboost-dev to 1.71.0
+  * Update install files.
+
+ -- Pino Toscano <pino@debian.org>  Tue, 10 Jan 2023 22:32:12 +0100
+
+kdiff3 (1.9.6-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump Standards-Version to 4.6.1, no changes required.
+
+ -- Pino Toscano <pino@debian.org>  Tue, 28 Jun 2022 07:56:45 +0200
+
+kdiff3 (1.9.5-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Pino Toscano <pino@debian.org>  Fri, 04 Mar 2022 21:45:46 +0100
+
+kdiff3 (1.9.4-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Mark the xauth, and xvfb build dependencies as nocheck, as they are needed
+    only by dh_auto_test.
+
+ -- Pino Toscano <pino@debian.org>  Mon, 22 Nov 2021 23:41:34 +0100
+
+kdiff3 (1.9.3-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump Standards-Version to 4.6.0, no changes required.
+
+ -- Pino Toscano <pino@debian.org>  Sat, 21 Aug 2021 07:38:38 +0200
+
+kdiff3 (1.9.2-2) unstable; urgency=medium
+
+  * Replace patch libatomic.diff by specifying -latomic instead via
+    dpkg-buildflags, making sure it cannot be left out by as-needed;
+    for now this is done on: armel m68k mipsel powerpc sh4.
+    Hopefully, this should fix linking the atomic functions.
+
+ -- Pino Toscano <pino@debian.org>  Mon, 16 Aug 2021 06:31:39 +0200
+
+kdiff3 (1.9.2-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update the build dependencies according to the upstream build system:
+    - bump cmake to 3.8
+    - bump the Qt packages to 5.8.0
+    - bump the KF packages to 5.37.0
+    - add libboost-dev
+    - drop libkf5iconthemes-dev
+  * Update the patches:
+    - libatomic.diff: refresh/update
+  * There are unit tests that require a display, so:
+    - add the xauth, and xvfb build dependencies
+    - run dh_auto_test with xvfb-run
+  * Update install files.
+
+ -- Pino Toscano <pino@debian.org>  Sun, 15 Aug 2021 17:31:23 +0200
+
+kdiff3 (1.8.5-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Set upstream metadata fields: Repository, Repository-Browse.
+  * Bump Standards-Version to 4.5.1, no changes required.
+  * Use execute_after_dh_auto_install to avoid invoking dh_auto_install
+    manually.
+
+ -- Pino Toscano <pino@debian.org>  Thu, 21 Jan 2021 11:40:18 +0100
+
+kdiff3 (1.8.4-1) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Fix day-of-week for changelog entries 0.9.97-2, 0.9.96-4, 0.9.95-5,
+    0.9.95-4, 0.9.94-3, 0.9.94-2, 0.9.93-3-1, 0.9.92-3, 0.9.92-2, 0.9.90-5,
+    0.9.90-4, 0.9.90-3, 0.9.90-2, 0.9.88-5.
+
+  [ Pino Toscano ]
+  * New upstream release.
+  * Bump the debhelper compatibility to 13:
+    - switch the debhelper-compat build dependency to 13
+  * Change the kdiff3 recommend in kdiff3-qt to a dependency, to make sure
+    that the transitional package actually works as such.
+  * Switch Source in copyright to https://invent.kde.org/sdk/kdiff3.
+  * Remove the explicit as-needed linking, as it is done by binutils now.
+
+ -- Pino Toscano <pino@debian.org>  Fri, 04 Sep 2020 11:55:08 +0200
+
+kdiff3 (1.8.3-1) unstable; urgency=medium
+
+  * New upstream release:
+    - fixes handling of the -L command line option (Closes: #939017)
+    - fixes missing menu items (Closes: #962960)
+  * Update the build dependencies according to the upstream build system:
+    - bump the KF packages to 5.27.0
+  * Update the patches:
+    - upstream_Don-t-try-to-set-value-unless-scrollbar-exists.patch: drop,
+      backported from upstream
+    - libatomic.diff: refresh
+  * Add the upstream signing key.
+  * Do not ship the diff_ext.mo translations, as they are for a component
+    specific for Windows.
+
+ -- Pino Toscano <pino@debian.org>  Sun, 05 Jul 2020 08:17:21 +0200
+
+kdiff3 (1.8.01-2) unstable; urgency=medium
+
+  * Switch the maintainer to Debian KDE Extras Team, as agreed with Eike;
+    keep him as Uploader, and add myself too.
+  * Drop the local man page, since upstream already provides one, so our
+    version overwrites it:
+    - remove kdiff3.sgml
+    - remove the docbook-to-man build dependency
+  * Do not use dh_icons anymore, as there are already file triggers to update
+    the icon theme caches.
+  * Add Vcs-* fields.
+  * Stop generating the HTML documentation, as it is generally not shipped
+    for KDE applications: (Closes: #924187)
+    - drop kdiff3-doc.doc-base, and kdiff3-doc.links
+  * Do not try to ship README.Debian, and README.source as documentation for
+    kdiff3-docs, as these files do not exist
+    - drop kdiff3-docs.docs
+  * Stop installing the NEWS file as documentation for kdiff3, as this file
+    only points to ChangeLog.
+  * Add the configuration for the CI on salsa.
+  * Sort, and clean the install files.
+  * Update the build dependencies according to the upstream build system:
+    - add the version required for cmake, extra-cmake-modules, Qt5, and the
+      KF5 packages
+    - explicitly add gettext, libkf5config-dev, libkf5kio-dev, and
+      libkf5widgetsaddons-dev
+  * Switch from cdbs to the dh sequencer with the kf5 dh addon
+    - replace the cdbs build dependency with pkg-kde-tools
+  * Bump the debhelper compatibility to 12:
+    - switch the debhelper build dependency to debhelper-compat 12
+    - remove debian/compat
+  * Rename debian/docs to debian/kdiff3.docs, to make to explicit which package
+    it refers to.
+  * Add Rules-Requires-Root: no.
+  * Remove unused lintian override.
+  * Remove the trailing whitespaces in changelog, and control.
+  * Ship also the translations. (Closes: #932887)
+  * Use https for Format in copyright.
+  * Bump Standards-Version to 4.5.0, no changes required.
+  * Add a watch file.
+  * Replace the patch fix-crash.patch with the upstream commit
+    6fd52582694f5616df3ec135fe22f21fc281036d; patch
+    upstream_Don-t-try-to-set-value-unless-scrollbar-exists.patch.
+  * Slightly rework the descriptions.
+
+ -- Pino Toscano <pino@debian.org>  Tue, 30 Jun 2020 07:07:37 +0200
+
+kdiff3 (1.8.01-1) unstable; urgency=low
+
+  * New upstream release (this time a real tagged release)
+  * Upstream fixed directory handling (closes: #920976)
+  * Applied patch versus crash by Bernhard Übelacker (closes: #926408)
+  * Updated control homepage field (closes: #927966)
+
+ -- Eike Sauer <eike@debian.org>  Sat, 06 Jul 2019 13:10:00 +0200
+
+kdiff3 (1.7.90-3) unstable; urgency=low
+
+  * Hopefully did fix lib atomic problem now.
+
+ -- Eike Sauer <eike@debian.org>  Wed, 23 Jan 2019 20:25:00 +0100
+
+kdiff3 (1.7.90-2) unstable; urgency=low
+
+  * Fixed file conflict between kdiff3 and kdiff3-doc - sorry!
+    (Closes: #919310)
+  * Fixed various warnings (lintian, multi-arch, watch file)
+  * Trying to link with lib atomic for some 32 bit architectures.
+    Not yet closing bug #919406 as I'm not sure it will work.
+
+ -- Eike Sauer <eike@debian.org>  Sat, 19 Jan 2019 12:12:00 +0100
+
+kdiff3 (1.7.90-1) unstable; urgency=low
+
+  * KDiff3 has been orphaned by Joachim Eibl - thanks for writing
+    this great program and maintaining it for over a decade!
+  * It has been adopted by KDE, in particular Michael Reeves
+    - thanks for keeping KDiff3 alive!
+  * ported to KDE 5/QT5 by Michael Reeves (closes: #874949)
+  * The QT only version has been "lost in translation".
+  * works now in KDE 5 dolphin (closes: #801680)
+
+ -- Eike Sauer <eike@debian.org>  Tue, 08 Jan 2019 11:17:00 +0100
+
+kdiff3 (0.9.98-4) unstable; urgency=low
+
+  * Removed vcs-* info from debian/control.
+    It didn't point to package source.
+  * Removed libkonq5-dev from Build-Depends (closes: #887478)
+  * Fixed minor stuff reported by cme
+  * kdiff3-doc marked as Multi-Arch: foreign
+
+ -- Eike Sauer <eike@debian.org>  Thu, 25 Jan 2018 17:28:00 +0100
+
+kdiff3 (0.9.98-3) unstable; urgency=low
+
+  * Removed usage of MAX_PATH which doesn't exist on hurd (closes: #823042)
+  * Fixed lintian waring dep5-copyright-license-name-not-unique
+  * Use UTF-8 for documentation generation, no matter the system's locale.
+    Improvement in reproducible builds.
+  * Updated standard version to 3.9.8. No changes needed.
+
+ -- Eike Sauer <eike@debian.org>  Sat, 07 May 2016 17:42:00 +0200
+
+kdiff3 (0.9.98-2) unstable; urgency=low
+
+  * Workaround for differences not showing in status bar after
+    start (closes: #757206).
+  * Fixed crash I was getting by comparing two completely different files
+  * Finally got rid of the lintian hardening warning for kdiff3-qt
+  * Updated standard version to 3.9.6. No changes needed.
+
+ -- Eike Sauer <eike@debian.org>  Sun, 26 Jul 2015 12:31:00 +0200
+
+kdiff3 (0.9.98-1) unstable; urgency=low
+
+  * New upstream release
+  * Got rid of many unnecessary depends thanks to patch from
+    Pino Toscano (closes: #749460).
+  * Included patch from Pino Toscano to enable parallel build
+    (closes: #749459).
+  * We need to build or html doc files on our own now.
+
+ -- Eike Sauer <eike@debian.org>  Sun, 03 Aug 2014 17:37:00 +0200
+
+kdiff3 (0.9.97-3) unstable; urgency=low
+
+  * Included upstream fix for merge saving bug (closes: #703174).
+  * No more using docbook-to-man, which has been orphaned years ago.
+
+ -- Eike Sauer <eike@debian.org>  Sun, 16 Jun 2013 13:05:00 +0200
+
+kdiff3 (0.9.97-2) unstable; urgency=low
+
+  * Path to help file in kdiff3-qt fixed (closes: #700424)
+    (doesn't look beautiful, but at least there's some text...)
+  * Updated standard version to 3.9.4. No changes needed.
+
+ -- Eike Sauer <eike@debian.org>  Fri, 01 Mar 2013 11:42:00 +0100
+
+kdiff3 (0.9.97-1) unstable; urgency=low
+
+  * New upstream release
+  * Upstream has accepted and improved my find dialog patch
+
+ -- Eike Sauer <eike@debian.org>  Sat, 26 Jan 2013 11:54:44 +0100
+
+kdiff3 (0.9.96-4) unstable; urgency=low
+
+  * Fixed lintian sutff:
+    - lintian override about versioned dependency for debhelper
+    - build dependency for dpkg-dev
+    - additional (redundant) licence paragraph
+  * Preset text selected when reentering find dialog
+
+ -- Eike Sauer <eike@debian.org>  Mon, 28 May 2012 20:00:00 +0200
+
+kdiff3 (0.9.96-3) unstable; urgency=low
+
+  * Dropped dependency on qt3-dev-tools-compat (closes: #673455)
+  * Standards version now 3.9.3
+  * Machine readable debian/copyright file
+  * Hardening flags (AFAICT, the lintian warnings on this are wrong)
+
+ -- Eike Sauer <eike@debian.org>  Sat, 19 May 2012 15:00:00 +0200
+
+kdiff3 (0.9.96-2) unstable; urgency=low
+
+  * Renamed "debian" patch (closes: #643175)
+  * Standards version now 3.9.2 (no changes)
+  * My old mail address is gone (after 17 years *sigh*),
+    replaced it where appropriate
+
+ -- Eike Sauer <eike@debian.org>  Tue, 27 Sep 2011 20:00:00 +0200
+
+kdiff3 (0.9.96-1) unstable; urgency=low
+
+  * New upstream release (closes: #620050, #614834)
+    Several patches have been taken by upstream
+
+ -- Eike Sauer <eike@debian.org>  Mon, 05 Sep 2011 20:07:54 +0200
+
+kdiff3 (0.9.95-7) unstable; urgency=low
+
+  * I officially do declare that Filipus Klutiero and Filipus Klutiero
+    are _not_ different people (see last changelog entry).
+  * Made compilable for KDE 4.5, thanks to Adrian von Bidder (closes: #599806)
+  * Standards version now 3.9.1 (no changes)
+  * Doc package Replaces/Breaks old kdiff3 version instead of "Conflicts".
+
+ -- Eike Sauer <eike@debian.org>  Tue, 12 Oct 2010 00:05:00 +0200
+
+kdiff3 (0.9.95-6) unstable; urgency=low
+
+  * Documentation was automatically compressed and therefore unusably
+    (what a strange default...), thanks to Filipus Klutiero for pointing
+    out and svuorela for his fixing help. (closes: #585949)
+  * "Qt" instead of "QT" in short description, thanks to Filipus Klutiero.
+    Two consecutive bug numbers by different people - cool. :o)
+    (closes: #585948)
+  * Added categories to .desktop file (thanks to svuorela for pointing out)
+  * Standards version now 3.8.4 (no changes)
+
+ -- Eike Sauer <eike@debian.org>  Tue, 15 Jun 2010 22:00:00 +0200
+
+kdiff3 (0.9.95-5) unstable; urgency=low
+
+  * KDE changed its doc path, so I had to do the same (closes: #584155)
+
+ -- Eike Sauer <eike@debian.org>  Thu, 03 Jun 2010 20:15:00 +0200
+
+kdiff3 (0.9.95-4) unstable; urgency=low
+
+  * New year's edition, now really incorporating Jordi Pujol's
+    bug fix for the konqueror context menu
+
+ -- Eike Sauer <eike@debian.org>  Fri, 01 Jan 2010 18:00:00 +0100
+
+kdiff3 (0.9.95-3) unstable; urgency=low
+
+  * Call dh_icons for our gnome users (thanks to Ori Avtalion for the hint)
+  * Let's make lintian at least as happy as Ubuntu. ;o)
+    Fixed Source section, misc:depends, typos.
+  * Context menu call to kdiff3 doesn't block konqueror anymore,
+    thanks to Jordi Pujol (closes: #562185)
+  * Standards version now 3.8.3 (no changes)
+
+ -- Eike Sauer <eike@debian.org>  Tue, 29 Dec 2009 14:00:00 +0100
+
+kdiff3 (0.9.95-2) unstable; urgency=low
+
+  * KDE 4 goes to unstable - KDiff3 goes along
+  * Standards version now 3.8.1 (no changes)
+
+ -- Eike Sauer <eike@debian.org>  Mon, 06 Apr 2009 20:00:00 +0200
+
+kdiff3 (0.9.95-1) experimental; urgency=low
+
+  * New upstream release
+    - Upstream included my changes for the QT version
+      and provided a script to generate QT language packs.
+
+ -- Eike Sauer <eike@debian.org>  Sat, 07 Mar 2009 14:16:09 +0100
+
+kdiff3 (0.9.94-3) experimental; urgency=low
+
+  * Improved package descriptions
+
+ -- Eike Sauer <eike@debian.org>  Sat, 28 Feb 2009 22:00:00 +0100
+
+kdiff3 (0.9.94-2) experimental; urgency=low
+
+  * Build QT version as well, resulting in an alternative package
+    not depending on KDE
+
+ -- Eike Sauer <eike@debian.org>  Sat, 21 Feb 2009 20:00:00 +0100
+
+kdiff3 (0.9.94-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Eike Sauer <eike@debian.org>  Tue, 20 Jan 2009 23:26:09 +0100
+
+kdiff3 (0.9.93-3-1) experimental; urgency=low
+
+  * New upstream release
+    - Initial release for KDE 4. (Closes: #479316)
+    - Thanks to Fathi Boudra for providing a first functional version
+      and calling my attention to cdbs!
+  * Changed build from pure debhelper to cdbs,
+    resulting in a much cleaner debian/rules file.
+  * Debhelper compatibility level changed from 4 to 7,
+    but just to make it find my files automatically.
+
+ -- Eike Sauer <eike@debian.org>  Wed, 14 Jan 2009 20:00:00 +0100
+
+kdiff3 (0.9.92-3) unstable; urgency=low
+
+  * Standards version now 3.8.0
+  * Fixed kdiff3-doc section
+  * Removed empty directory /usr/share/applnk
+  * Removed extra leading whitespace from doc-base
+  * Fixed doc-base section
+
+ -- Eike Sauer <eike@debian.org>  Thu, 18 Dec 2008 20:00:00 +0100
+
+kdiff3 (0.9.92-2) unstable; urgency=low
+
+  * Include konqueror plugin in package (closes Ubuntu bug no. 145026)
+  * Split package into kdiff3 and kdiff3-doc
+
+ -- Eike Sauer <eike@debian.org>  Sun, 11 Nov 2007 20:00:00 +0100
+
+kdiff3 (0.9.92-1) unstable; urgency=low
+
+  * New upstream release
+  	- now distinguishes between empty and non-existent files in "full analysis"
+  		mode (closes: #417086)
+  	- fixed includes for gcc 4.3, thanks to Martin Michlmayr (closes: #417312)
+  	Thanks to upstream for the Debian bug handling! :o)
+
+ -- Eike Sauer <eike@debian.org>  Tue, 17 Apr 2007 16:18:32 +0200
+
+kdiff3 (0.9.91-1) unstable; urgency=low
+
+  * New upstream release
+  * The I'm-a-DD-release...!
+
+ -- Eike Sauer <eike@debian.org>  Sun, 18 Mar 2007 23:33:56 +0100
+
+kdiff3 (0.9.90-5) unstable; urgency=low
+
+  * Changed, moved and registered .desktop file (closes: #396790)
+
+ -- Eike Sauer <eikes@cs.tu-berlin.de>  Thu, 30 Nov 2006 20:15:00 +0200
+
+kdiff3 (0.9.90-4) unstable; urgency=low
+
+  * Added AM_MAINTAINER_MODE
+
+ -- Eike Sauer <eikes@cs.tu-berlin.de>  Thu, 12 Oct 2006 14:00:00 +0200
+
+kdiff3 (0.9.90-3) unstable; urgency=low
+
+  * More autotooling stuff...
+
+ -- Eike Sauer <eikes@cs.tu-berlin.de>  Mon, 02 Oct 2006 16:30:00 +0200
+
+kdiff3 (0.9.90-2) unstable; urgency=low
+
+  * Really reduced dependencies (as promised in 0.9.89-1) this time...
+  * manpage updated
+
+ -- Eike Sauer <eikes@cs.tu-berlin.de>  Wed, 27 Sep 2006 17:40:00 +0200
+
+kdiff3 (0.9.90-1) unstable; urgency=low
+
+  * New upstream release
+  * Standards version now 3.7.2
+
+ -- Eike Sauer <eikes@cs.tu-berlin.de>  Tue, 30 May 2006 10:16:35 +0200
+
+kdiff3 (0.9.89-1) unstable; urgency=low
+
+  * New upstream release
+  * Reduced dependencies from 27 to 5 packages...
+    (see http://lists.debian.org/debian-devel-announce/2005/11/msg00016.html)
+
+ -- Eike Sauer <eikes@cs.tu-berlin.de>  Wed, 12 Apr 2006 00:28:33 +0200
+
+kdiff3 (0.9.88-5) unstable; urgency=low
+
+  * corrections to German po file, thanks to Jens Seidel (closes: #314016)
+  * mention GNU diff in copyright file (hint by Florian Ernst)
+  * making manual known to doc-base, so obeying to Debian Policy 3.6.2
+  * ABI transition to GCC 4.0 (closes #327048)
+
+ -- Eike Sauer <eikes@cs.tu-berlin.de>  Wed, 07 Sep 2005 15:15:00 +0100
+
+kdiff3 (0.9.88-4) unstable; urgency=low
+
+  * HTML help goes to /usr/share/doc/kdiff3/html
+
+ -- Eike Sauer <eikes@cs.tu-berlin.de>  Fri, 15 Apr 2005 00:15:00 +0100
+
+kdiff3 (0.9.88-3) unstable; urgency=low
+
+  * symlinked all those documentation images between the different
+    languages (they where the same anyway) - which halves the size
+    of the package...
+
+ -- Eike Sauer <eikes@cs.tu-berlin.de>  Sun, 10 Apr 2005 22:14:00 +0100
+
+kdiff3 (0.9.88-2) unstable; urgency=low
+
+  * Don't use makefile in clean rule when it doesn't yet exist
+
+ -- Eike Sauer <eikes@cs.tu-berlin.de>  Sun, 10 Apr 2005 22:14:00 +0100
+
+kdiff3 (0.9.88-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Eike Sauer <eikes@cs.tu-berlin.de>  Sat, 26 Feb 2005 18:07:03 +0100
+
+kdiff3 (0.9.87-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Eike Sauer <eikes@cs.tu-berlin.de>  Sun, 30 Jan 2005 19:08:52 +0100
+
+kdiff3 (0.9.86-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Eike Sauer <eikes@cs.tu-berlin.de>  Tue, 15 Jun 2004 11:28:59 +0200
+
+kdiff3 (0.9.84-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Eike Sauer <eikes@cs.tu-berlin.de>  Mon, 31 May 2004 22:43:32 +0200
+
+kdiff3 (0.9.83-2) unstable; urgency=medium
+
+  * First upload of 0.9.83 (closes: #250486)
+  * Casual crashes due to race condition (hopefully) fixed
+
+ -- Eike Sauer <eikes@cs.tu-berlin.de>  Wed,  4 Feb 2004 15:09:12 +0100
+
+kdiff3 (0.9.83-1) unstable; urgency=low
+
+  * New upstream release
+    - now builds on 64 bit architectures (closes: #238221)
+  * We don't need docbook-to-man in Build-Depends anymore
+  * Cleaned up debian/rules.
+
+ -- Eike Sauer <eikes@cs.tu-berlin.de>  Sun,  7 Mar 2004 00:00:32 +0100
+
+kdiff3 (0.9.81-2) unstable; urgency=medium
+
+  * Possible data loss situation fixed by upstream
+
+ -- Eike Sauer <eikes@cs.tu-berlin.de>  Wed,  4 Feb 2004 15:09:12 +0100
+
+kdiff3 (0.9.81-1) unstable; urgency=low
+
+  * New upstream release
+  * Debian manpage accepted by upstream
+
+ -- Eike Sauer <eikes@cs.tu-berlin.de>  Mon, 12 Jan 2004 02:11:51 +0100
+
+kdiff3 (0.9.80-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Eike Sauer <eikes@cs.tu-berlin.de>  Mon,  8 Dec 2003 22:45:16 +0100
+
+kdiff3 (0.9.71-1) unstable; urgency=low
+
+  * Initial Release.
+  * Wrote a short man page to satisfy Debian Policy.
+
+ -- Eike Sauer <eikes@cs.tu-berlin.de>  Wed,  5 Nov 2003 00:25:06 +0100
