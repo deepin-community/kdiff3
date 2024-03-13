@@ -1,4 +1,18 @@
 #!/usr/bin/make -f
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+archs_that_need_atomic = armel m68k mipsel powerpc sh4
+ifeq ($(DEB_HOST_ARCH),$(findstring $(DEB_HOST_ARCH), $(archs_that_need_atomic)))
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--no-as-needed -latomic -Wl,--as-needed
+endif
 
 %:
-	dh $@
+	dh $@ --with kf5
+
+override_dh_auto_test:
+	xvfb-run -a dh_auto_test
+
+execute_after_dh_auto_install:
+	# drop translations of Windows-only component
+	rm debian/tmp/usr/share/locale/*/LC_MESSAGES/diff_ext.mo
